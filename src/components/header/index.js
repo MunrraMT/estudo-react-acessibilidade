@@ -6,7 +6,7 @@ const Header = () => (
       <i className='fab fa-linkedin' />
     </StyledHeader.SocialMedia>
     <StyledHeader.Title>
-      Estudo de acessibilidade com ReactJS
+      Estudo de acessibilidade com ReactJS usando Wai-Aria
     </StyledHeader.Title>
     <StyledHeader.SubTitle>
       Desenvolvido por <a href='https://github.com/MunrraMT'>André</a>
