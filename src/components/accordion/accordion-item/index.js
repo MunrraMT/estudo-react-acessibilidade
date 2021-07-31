@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const AccordionItem = ({ quest, response, id }) => {
+const AccordionItem = ({ question, response, id }) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleClick = () => {
@@ -9,7 +9,7 @@ const AccordionItem = ({ quest, response, id }) => {
   };
 
   return (
-    <article key={`accordion-${id}`}>
+    <article>
       <h3>
         <button
           onClick={handleClick}
@@ -18,7 +18,7 @@ const AccordionItem = ({ quest, response, id }) => {
           aria-controls={`response-${id}`}
           type='button'
         >
-          {quest}{' '}
+          {question}{' '}
           {!expanded ? (
             <img
               width='15'
