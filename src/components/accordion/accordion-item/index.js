@@ -19,14 +19,20 @@ const AccordionItem = ({ quest, response, id }) => {
           type='button'
         >
           {quest}{' '}
-          {expanded ? (
-            <span>
-              <i className='fas fa-angle-right' />
-            </span>
+          {!expanded ? (
+            <img
+              width='15'
+              height='15'
+              src='/fontawesome/plus-solid.svg'
+              alt='simibolo de fechado'
+            />
           ) : (
-            <span>
-              <i className='fas fa-angle-right' />
-            </span>
+            <img
+              width='15'
+              height='15'
+              src='/fontawesome/minus-solid.svg'
+              alt='simibolo de aberto'
+            />
           )}
         </button>
       </h3>
