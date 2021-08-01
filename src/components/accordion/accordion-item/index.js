@@ -1,45 +1,43 @@
-import { useState } from 'react';
+const AccordionItem = ({ question, answer, id, active, activeClick }) => {
+  const showActived = () => {
+    if (active === Number(id.slice(15))) return true;
 
-const AccordionItem = ({ question, response, id }) => {
-  const [expanded, setExpanded] = useState(false);
-
-  const handleClick = () => {
-    if (expanded === true) setExpanded(false);
-    if (expanded === false) setExpanded(true);
+    return false;
   };
 
   return (
-    <article>
+    <article id={`question-${id}`}>
       <h3>
         <button
-          onClick={handleClick}
-          id={`question-${id}`}
-          aria-expanded={expanded}
-          aria-controls={`response-${id}`}
+          onClick={activeClick}
+          aria-expanded={showActived()}
+          aria-controls={`answer-${id}`}
           type='button'
         >
           {question}{' '}
-          {!expanded ? (
-            <img
-              width='15'
-              height='15'
-              src='/fontawesome/plus-solid.svg'
-              alt='simibolo de fechado'
-            />
-          ) : (
+          {showActived() ? (
             <img
               width='15'
               height='15'
               src='/fontawesome/minus-solid.svg'
               alt='simibolo de aberto'
             />
+          ) : (
+            <img
+              width='15'
+              height='15'
+              src='/fontawesome/plus-solid.svg'
+              alt='simibolo de fechado'
+            />
           )}
         </button>
       </h3>
 
-      <section id={`response-${id}`} aria-labelledby={`question-${id}`}>
-        {expanded ? <p>{response}</p> : null}
-      </section>
+      {showActived() ? (
+        <section id={`answer-${id}`} aria-labelledby={`question-${id}`}>
+          <p>{answer}</p>
+        </section>
+      ) : null}
     </article>
   );
 };
