@@ -23,10 +23,6 @@ const StyledAccordion = styled.section`
       h3 {
         border-bottom: none;
       }
-
-      section {
-        border-top: 1px solid black;
-      }
     }
 
     h3 {
@@ -41,11 +37,6 @@ const StyledAccordion = styled.section`
       border: none;
       background: none;
       padding: 1rem;
-    }
-
-    section {
-      padding: 1rem;
-      text-align: justify;
     }
   }
 `;

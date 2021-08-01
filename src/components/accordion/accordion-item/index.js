@@ -1,3 +1,18 @@
+import styled from 'styled-components';
+
+const StyledAccordionItem = styled.article`
+  section {
+    padding: ${(props) => (props.show ? '1rem' : '0')};
+    text-align: justify;
+    height: ${(props) => (props.show ? 'auto' : '0')};
+    overflow-y: ${(props) => (props.show ? 'show' : 'hidden')};
+  }
+
+  &:last-of-type section {
+    border-top: ${(props) => (props.show ? '1px solid black' : 'none')};
+  }
+`;
+
 const AccordionItem = ({ question, answer, id, active, activeClick }) => {
   const showActived = () => {
     if (active === Number(id.slice(15))) return true;
@@ -6,7 +21,7 @@ const AccordionItem = ({ question, answer, id, active, activeClick }) => {
   };
 
   return (
-    <article id={`question-${id}`}>
+    <StyledAccordionItem show={showActived} id={`question-${id}`}>
       <h3>
         <button
           onClick={activeClick}
@@ -38,7 +53,7 @@ const AccordionItem = ({ question, answer, id, active, activeClick }) => {
           <p>{answer}</p>
         </section>
       ) : null}
-    </article>
+    </StyledAccordionItem>
   );
 };
 
